@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Bla Bla
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Bla bla
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[amolmane@alumni.ubc.ca](mailto:amolmane@alumni.ubc.ca)
