@@ -4,11 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Bla Bla
-
 ### More Information
 
-Bla bla
+Raised in India, went to college in the USA, going to work in Canada.
 
 ### Contact me
 
