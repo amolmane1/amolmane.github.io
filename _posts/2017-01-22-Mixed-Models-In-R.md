@@ -25,7 +25,7 @@ ggplot(data, aes(x = H, y = R, color = teamID)) +
   ggtitle("Runs v. Hits by Team")
 ```
 
-![](https://amolmane1.github.io/images/542_lab2_blog_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](https://amolmane1.github.io/images/unnamed-chunk-3-1.png)
 
 As you can see, all teams have similar (but not the same) slopes and intercepts. This is great for a mixed effects model.
 
@@ -231,7 +231,7 @@ To verify that our model is appropriate, and that our sample values have converg
 plot(model_samples)
 ```
 
-![](https://amolmane1.github.io/images/542_lab2_blog_files/figure-markdown_github/unnamed-chunk-14-1.png)![](https://amolmane1.github.io/images/542_lab2_blog_files/figure-markdown_github/unnamed-chunk-14-2.png)![](https://amolmane1.github.io/images/542_lab2_blog_files/figure-markdown_github/unnamed-chunk-14-3.png)![](https://amolmane1.github.io/images/542_lab2_blog_files/figure-markdown_github/unnamed-chunk-14-4.png)
+![](https://amolmane1.github.io/images/unnamed-chunk-14-1.png)![](https://amolmane1.github.io/images/unnamed-chunk-14-2.png)![](https://amolmane1.github.io/images/unnamed-chunk-14-3.png)![](https://amolmane1.github.io/images/unnamed-chunk-14-4.png)
 
 Looks like all the beta and random effects values are stable, and the density plots of all the values are approximately normal.
 
