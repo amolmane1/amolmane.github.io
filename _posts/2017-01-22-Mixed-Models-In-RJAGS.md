@@ -127,6 +127,7 @@ Above is all the model data we pass into the model. - `id` is a numeric version 
 **Now** we can get to the meat of this blog post - the RJAGS model. If you're not familiar with RJAGS, the next code block will look intimidating, but hopefully I can help you understand it better. It's basically a coded version of the distributions of the priors and posteriors.
 
 Note: Parts of this code have been directly taken from <http://bendixcarstensen.com/Bayes/Cph-2012/pracs.pdf>
+
 ``` r
 model_string = "
 model {
