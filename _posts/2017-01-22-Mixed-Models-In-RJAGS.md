@@ -161,15 +161,15 @@ Recall that in a linear mixed effects model (I will refer to this section as the
 
 ![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-latex_model.png)
 
-`Omega.u` is a Wishart distribution. It's a prior on the variance-covariance matrix of the random effects. We need it because in our mixed model, the intercepts of the different teams are normally distributed around their mean (and the same for the slopes of the teams), and this matrix (whose inverse is the precision matrix of the random effects), will be used to calculate just how far the *u*<sub>0*f*</sub> and *u*<sub>1*f*</sub> will be from *β*<sub>0</sub> and *β*<sub>1</sub> respectively. (Refer to lines 10-12 of the code chunk for a better understanding of how `Omega.u` is used to calculate the random effects). `Omega.u` is doing the job of the ∑ in line 2 of the latex model. The values of R are set to be uninformative (the diagonals are .1 because you can't make them 0, because then you won't be able to invert them).
+- `Omega.u` is a Wishart distribution. It's a prior on the variance-covariance matrix of the random effects. We need it because in our mixed model, the intercepts of the different teams are normally distributed around their mean (and the same for the slopes of the teams), and this matrix (whose inverse is the precision matrix of the random effects), will be used to calculate just how far the *u*<sub>0*f*</sub> and *u*<sub>1*f*</sub> will be from *β*<sub>0</sub> and *β*<sub>1</sub> respectively. (Refer to lines 10-12 of the code chunk for a better understanding of how `Omega.u` is used to calculate the random effects). `Omega.u` is doing the job of the ∑ in line 2 of the latex model. The values of R are set to be uninformative (the diagonals are .1 because you can't make them 0, because then you won't be able to invert them).
 
-`sigma.e` is an uninformative prior for the residuals. It is used in line 6 of the code chunk to specify the precision of the distribution of `y`. `sigma.e` is doing the job of *σ* in line 3 of the latex model. We do `1/(sigma.e^2)` in line 6 because JAGS syntax takes precision, not standard deviation.
+- `sigma.e` is an uninformative prior for the residuals. It is used in line 6 of the code chunk to specify the precision of the distribution of `y`. `sigma.e` is doing the job of *σ* in line 3 of the latex model. We do `1/(sigma.e^2)` in line 6 because JAGS syntax takes precision, not standard deviation.
 
-`beta[0]` and `beta[1]` are the priors on the distribution of the two beta values. Again, their values are set to be uninformative - centered at 0 and with a very low precision (so high standard deviation).
+- `beta[0]` and `beta[1]` are the priors on the distribution of the two beta values. Again, their values are set to be uninformative - centered at 0 and with a very low precision (so high standard deviation).
 
-Now we've arrived at the data generating model. Lines 10-12 in the code chunk calculate the intercept and `Hits` random effects for all teams (hence the for loop).
+- Now we've arrived at the data generating model. Lines 10-12 in the code chunk calculate the intercept and `Hits` random effects for all teams (hence the for loop).
 
-Lines 4-7 describe the distribution of y. This is where line 1 of the latex model is being executed.
+- Lines 4-7 describe the distribution of y. This is where line 1 of the latex model is being executed.
 
 And that's the JAGS model. Below is how we bring everything together:
 
