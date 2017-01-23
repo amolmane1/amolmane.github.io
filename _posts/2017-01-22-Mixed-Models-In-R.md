@@ -1,6 +1,3 @@
-DSCI 542, Lab 2 blog post
-================
-
 I'm going to explain how to use RJAGS for a linear mixed effects model.
 
 Note: This post assumes that you're already familiar with the concepts of linear mixed effects models and Bayesian inference. Additionally, some prior experience with using RJAGS to perform simple Bayesian linear regression will help, but it's not essential.
@@ -25,7 +22,7 @@ ggplot(data, aes(x = H, y = R, color = teamID)) +
   ggtitle("Runs v. Hits by Team")
 ```
 
-![](https://amolmane1.github.io/images/unnamed-chunk-3-1.png)
+![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-scatterplot.png)
 
 As you can see, all teams have similar (but not the same) slopes and intercepts. This is great for a mixed effects model.
 
@@ -160,11 +157,7 @@ Let's parse this line by line. We'll look at it from the bottom to the top (I do
 
 Recall that in a linear mixed effects model (I will refer to this section as the Latex model):
 
-1.  *y*<sub>*f**t*</sub> = (*β*<sub>0</sub> + *u*<sub>0*f*</sub>)+(*β*<sub>1</sub> + *u*<sub>1*f*</sub>)+*e*<sub>*f**t*</sub>, where
-
-2.  *u*<sub>0*f*</sub>, *u*<sub>1*f*</sub> ∼ *N*(0, ∑) and
-
-3.  *e*<sub>*f**t*</sub> ∼ *N*(0, *σ*)
+![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-latex_model.png)
 
 `Omega.u` is a Wishart distribution. It's a prior on the variance-covariance matrix of the random effects. We need it because in our mixed model, the intercepts of the different teams are normally distributed around their mean (and the same for the slopes of the teams), and this matrix (whose inverse is the precision matrix of the random effects), will be used to calculate just how far the *u*<sub>0*f*</sub> and *u*<sub>1*f*</sub> will be from *β*<sub>0</sub> and *β*<sub>1</sub> respectively. (Refer to lines 10-12 of the code chunk for a better understanding of how `Omega.u` is used to calculate the random effects). `Omega.u` is doing the job of the ∑ in line 2 of the latex model. The values of R are set to be uninformative (the diagonals are .1 because you can't make them 0, because then you won't be able to invert them).
 
@@ -231,7 +224,7 @@ To verify that our model is appropriate, and that our sample values have converg
 plot(model_samples)
 ```
 
-![](https://amolmane1.github.io/images/unnamed-chunk-14-1.png)![](https://amolmane1.github.io/images/unnamed-chunk-14-2.png)![](https://amolmane1.github.io/images/unnamed-chunk-14-3.png)![](https://amolmane1.github.io/images/unnamed-chunk-14-4.png)
+![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_1.png)![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_2.png)![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_3.png)![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_4.png)
 
 Looks like all the beta and random effects values are stable, and the density plots of all the values are approximately normal.
 
