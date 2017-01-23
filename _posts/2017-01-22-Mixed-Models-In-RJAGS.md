@@ -123,8 +123,9 @@ model_data <- list( id = as.integer( factor(data$teamID) ),
 ```
 
 Above is all the model data we pass into the model.
+
 - `id` is a numeric version of `teamID` (we need it to be numeric because the model's going to do calculations using it).
-- `x` is the `Hits` data for all the teams over all the years, scaled. 
+- `x` is the `Hits` data for all the teams over all the years, scaled.
 - `y` is the `Runs` data.
 - `N` is the number of rows.
 - `F` is the number of teams.
