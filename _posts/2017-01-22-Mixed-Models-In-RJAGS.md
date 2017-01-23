@@ -126,6 +126,7 @@ Above is all the model data we pass into the model. - `id` is a numeric version 
 
 **Now** we can get to the meat of this blog post - the RJAGS model. If you're not familiar with RJAGS, the next code block will look intimidating, but hopefully I can help you understand it better. It's basically a coded version of the distributions of the priors and posteriors.
 
+Note: Parts of this code have been directly taken from <http://bendixcarstensen.com/Bayes/Cph-2012/pracs.pdf>
 ``` r
 model_string = "
 model {
@@ -224,9 +225,9 @@ To verify that our model is appropriate, and that our sample values have converg
 plot(model_samples)
 ```
 
-![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_1.png)![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_2.png)![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_3.png)![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_4.png)
-
 Looks like all the beta and random effects values are stable, and the density plots of all the values are approximately normal.
+
+![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_1.png)![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_2.png)![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_3.png)![](https://amolmane1.github.io/images/2017-01-22-Mixed-Models-In-R-diagnostics_4.png)
 
 You could plot the individual fit lines by team for the `lmer` and `JAGS` models to again verify that the results are similar and that the fit lines reasonably approximate the data; however, that's out of the scope of this blog post. My main aim was to help you understand how to code a linear mixed model in JAGS, and I hope I've done that.
 
